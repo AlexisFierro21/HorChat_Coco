@@ -16,8 +16,8 @@ public class Lista_Amigos {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-                Principal x = new Principal();
-   x.setVisible(true);
+                Login x = new Login();
+                x.setVisible(true);
     }
     
 }
