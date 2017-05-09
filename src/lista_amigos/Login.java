@@ -43,7 +43,9 @@ public class Login extends javax.swing.JFrame {
             }
         
         if(nick.equals(User) && password.equals(Password)){
-            JOptionPane.showMessageDialog(null, "Welcome");
+            Principal x = new Principal();
+            x.setVisible(true);
+            dispose();
         }if(nick.equals(User) && !password.equals(Password)){
             JOptionPane.showMessageDialog(null, "Wrong Password");
         }else{

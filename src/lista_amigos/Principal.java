@@ -141,7 +141,9 @@ cone=conn.con_bd();
             dispose();
         }else{ 
             if(e.getSource()==Cambiar_Info){
-                //Aqui el codigo para que abra la otra ventana de editar la informacion
+                ChageInformation x = new ChageInformation();
+                x.setVisible(true);
+                dispose();
             }
         }
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
