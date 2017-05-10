@@ -44,6 +44,7 @@ public class Login extends javax.swing.JFrame {
      * @param Password 
      */
     void access(String User, String Password){
+        boolean compare=false;
         String sql="SELECT * FROM users WHERE name ='"+ User +"' && password ='"+Password+"'";
         String nick="", password="";
         try {
@@ -54,16 +55,19 @@ public class Login extends javax.swing.JFrame {
             {
                 nick=rs.getString("name");
                 password=rs.getString("password");
+                if(nick.equals(User) && password.equals(Password)){
+                    compare=true;
+                }
             }
         
-        if(nick.equals(User) && password.equals(Password)){
+        if(compare == true){
             Principal x = new Principal(nick);
             x.setVisible(true);
             dispose();
         }if(nick.equals(User) && !password.equals(Password)){
             JOptionPane.showMessageDialog(null, "Wrong Password");
-        }else{
-            JOptionPane.showMessageDialog(null, "Register");
+        }else if(nick.equals(null) && password.equals(null)){
+            JOptionPane.showMessageDialog(null, "Llenar lo valores porfavor");
         }
         
         } catch (SQLException ex) {
@@ -184,6 +188,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         Register register = new Register();
         register.setVisible(true);
+        dispose();
         register.pack();
     }//GEN-LAST:event_jButton2MouseClicked
 

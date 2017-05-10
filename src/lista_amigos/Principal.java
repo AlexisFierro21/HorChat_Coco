@@ -52,10 +52,19 @@ cone=conn.con_bd();
     }
       //---------------------Vista
       public void configura(String userr){
-    int x=0;
+    int x=0, id=0;
          modelo = new DefaultListModel();
      try {
-        sql=cone.prepareStatement("SELECT * FROM `friends` LEFT JOIN `users` ON `users`.`id` = `friends`.`slave_id` WHERE `master_id` = 1");
+         
+         PreparedStatement sqlid = cone.prepareStatement("SELECT `id` FROM `users` WHERE `name` = '"+ userr+"'");
+         ResultSet rs = sqlid.executeQuery();
+         while(rs.next()){
+            id = rs.getInt("id");
+            }
+         String ids = Integer.toString(id);
+         
+         
+        sql=cone.prepareStatement("SELECT * FROM `friends` LEFT JOIN `users` ON `users`.`id` = `friends`.`slave_id` WHERE `master_id` ='"+id+"'");
     } catch (SQLException ex) {
         Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
     }

@@ -28,7 +28,7 @@ public Connection cone;
             catch (ClassNotFoundException ex) {
                 Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
             }
-            cone =  DriverManager.getConnection("jdbc:mysql://localhost:3306/chatit", "root","");
+            cone =  DriverManager.getConnection("jdbc:mysql://127.0.0.1/chat", "root","");
         return cone;
                         }
         catch (SQLException ex) {
