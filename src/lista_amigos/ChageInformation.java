@@ -33,8 +33,16 @@ public class ChageInformation extends javax.swing.JFrame {
         jTextField6.setText(nick);
     }
     
-    //Metodo que verifica si los textbox estan llenados de manera correcta y si lo estan realiza los cambios
-    //recibe los valores de todos los textbox de la pantalla
+        /**
+         * Metodo que verifica si los textbox estan llenados de manera correcta y si lo estan realiza los cambios
+         * recibe los valores de todos los textbox de la pantalla 
+         * @param txtnick
+         * @param txtage
+         * @param txtgender
+         * @param txtPassword
+         * @param txtConfirmPassword
+         * @param txtEmail 
+         */
     void change(String txtnick,Integer txtage,String txtgender,String txtPassword,String txtConfirmPassword,String txtEmail){
         String compare="SELECT * FROM users";
         String nick="", password="";

@@ -34,8 +34,17 @@ public class Register extends javax.swing.JFrame {
     }
 
     
-    //Metodo que verifica si los textbox estan llenados de manera correcta y si lo estan inserta al nuevo usuario
-    //recibe los valores de todos los textbox de la pantalla
+    /**
+     * Metodo que verifica si los textbox estan llenados de manera correcta y si lo estan inserta al nuevo usuario
+     * recibe los valores de todos los textbox de la pantalla
+     * si se cumplan con la condiciones correctas se guarda el valor en la base de datos como nuevo usuario
+     * @param txtnick 
+     * @param txtage
+     * @param txtgender
+     * @param txtPassword
+     * @param txtConfirmPassword
+     * @param txtEmail 
+     */
     
     public void register(String txtnick,Integer txtage,String txtgender,String txtPassword,String txtConfirmPassword,String txtEmail){
         String compare="SELECT * FROM users";
@@ -228,7 +237,11 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     
-    //Boton para ingresar como nuevo usuario 
+    /**
+     * Boton para ingresar como nuevo usuario y llama al metodo register extraiendo todos los datos de los texbox
+     * y los manda al metodo antes mencionado
+     * @param evt 
+     */
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         String txtnick = jTextField1.getText();
@@ -242,7 +255,10 @@ public class Register extends javax.swing.JFrame {
         register(txtnick,txtage,txtgender, txtPassword, txtConfirmPassword, txtEmail);
     }//GEN-LAST:event_jButton1MouseClicked
 
-    //Boton para regresar al log in
+    /**
+     * Boton para regresar a la pantalla de log in sin ingresar ningun valor
+     * @param evt 
+     */
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
         Login login = new Login();

@@ -22,20 +22,27 @@ import lista_amigos.Register;
  */
 public class Login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login
-     */
+    
     public String nick;
-
+    /**
+     * recibe el nombre del usuario y lo guarda
+     * @param nick 
+     */
     public void setNick(String nick) {
         this.nick = nick;
     }
-    
+    /**
+     * Creates new form Login
+     */
     public Login() {
         initComponents();
     }
     
-    //Verifica si los textbow estan correctamente llenados y si el usuario existe en la base de datos
+    /**
+     * Verifica si los textbow estan correctamente llenados y si el usuario existe en la base de datos
+     * @param User
+     * @param Password 
+     */
     void access(String User, String Password){
         String sql="SELECT * FROM users WHERE name ='"+ User +"' && password ='"+Password+"'";
         String nick="", password="";
@@ -157,7 +164,10 @@ public class Login extends javax.swing.JFrame {
 
     
     
-    //Boton para iniciar sesion
+    /**
+     * Boton para iniciar sesion
+     * @param evt 
+     */
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
          String txtUser = jTextField1.getText();
@@ -166,7 +176,10 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     
-    //Boton para registrase
+    /**
+     * Boton para registrase
+     * @param evt 
+     */
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
         Register register = new Register();
