@@ -142,7 +142,7 @@ cone=conn.con_bd();
             dispose();
         }else{ 
             if(e.getSource()==Cambiar_Info){
-                ChageInformation x = new ChageInformation();
+                ChageInformation x = new ChageInformation(userrr);
                 x.setVisible(true);
                 dispose();
             }

@@ -22,12 +22,15 @@ import lista_amigos.Register;
  * @author darik
  */
 public class ChageInformation extends javax.swing.JFrame {
-String nickk;
+ String nickk;
+ 
     /**
      * Creates new form ChageInformation
      */
-    public ChageInformation() {
+    public ChageInformation(String nick) {
+        this.nickk = nick;
         initComponents();
+        jTextField6.setText(nick);
     }
     
     //Metodo que verifica si los textbox estan llenados de manera correcta y si lo estan realiza los cambios
@@ -68,13 +71,15 @@ String nickk;
             }else if(comparation == true){
                 JOptionPane.showMessageDialog(null, "Already existing user");
             }else{
-            String query = " update users set password = ? where name = ? email = ?";
+            String query = " update users set password = ? name = ? email = ? age = ? gender = ? where name = ?";
+            //UPDATE Messages SET description = ?, author = ? WHERE id = ? AND seq_num = ?"
             PreparedStatement preparedStmt = cn.prepareStatement(query);
             preparedStmt.setString (2, txtnick);
             preparedStmt.setString (1, txtPassword);
             preparedStmt.setString (3, txtgender);
             preparedStmt.setInt (4, txtage);
             preparedStmt.setString (5, txtEmail);
+            preparedStmt.setString (6, nickk);
             preparedStmt.execute();
             this.setVisible(false);
             Login login = new Login();
@@ -372,11 +377,11 @@ String nickk;
             java.util.logging.Logger.getLogger(ChageInformation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+            
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ChageInformation().setVisible(true);
+                //new ChageInformation(nickk).setVisible(true);
             }
         });
     }
