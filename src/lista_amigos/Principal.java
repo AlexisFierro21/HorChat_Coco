@@ -42,7 +42,6 @@ private Connection cone;
  private ResultSet res;
      PreparedStatement sql=null;
 agregar_amigo x = new agregar_amigo(null);
-
 //--------------Constructor
 public Principal(String user) {
    
@@ -56,14 +55,14 @@ cone=conn.con_bd();
     int x=0;
          modelo = new DefaultListModel();
      try {
-        sql=cone.prepareStatement("Select * FROM Users");
+        sql=cone.prepareStatement("SELECT * FROM `friends` LEFT JOIN `users` ON `users`.`id` = `friends`.`slave_id` WHERE `master_id` = 1");
     } catch (SQLException ex) {
         Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
     }
      try {
         res = sql.executeQuery();
         while(res.next()){
-            modelo.addElement(res.getString("nombre"));
+            modelo.addElement(res.getString("name"));
             }
     } catch (SQLException ex) {
         Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);

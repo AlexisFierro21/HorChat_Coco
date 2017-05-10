@@ -72,7 +72,7 @@ public class Register extends javax.swing.JFrame {
             }else if(comparation == true){
                 JOptionPane.showMessageDialog(null, "Already existing user");
             }else{
-            String query = " insert into users (nick, password)" + " values (?, ?)";
+            String query = " insert into users (name, password)" + " values (?, ?)";
             PreparedStatement preparedStmt = cn.prepareStatement(query);
             preparedStmt.setString (1, txtnick);
             preparedStmt.setString (2, txtPassword);

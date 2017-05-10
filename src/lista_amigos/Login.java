@@ -37,7 +37,7 @@ public class Login extends javax.swing.JFrame {
     
     //Verifica si los textbow estan correctamente llenados y si el usuario existe en la base de datos
     void access(String User, String Password){
-        String sql="SELECT * FROM users WHERE nick ='"+ User +"' && password ='"+Password+"'";
+        String sql="SELECT * FROM users WHERE name ='"+ User +"' && password ='"+Password+"'";
         String nick="", password="";
         try {
         Statement st = cn.createStatement();
@@ -45,7 +45,7 @@ public class Login extends javax.swing.JFrame {
         
         while(rs.next())
             {
-                nick=rs.getString("nick");
+                nick=rs.getString("name");
                 password=rs.getString("password");
             }
         

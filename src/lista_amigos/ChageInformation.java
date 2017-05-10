@@ -43,7 +43,7 @@ String nickk;
         
         while(rs.next())
             {
-                nick=rs.getString("nick");
+                nick=rs.getString("name");
                 password=rs.getString("password");
                 if(nick.equals(txtnick) && password.equals(password)){
                 comparation=true;
@@ -68,7 +68,7 @@ String nickk;
             }else if(comparation == true){
                 JOptionPane.showMessageDialog(null, "Already existing user");
             }else{
-            String query = " update users set password = ? where nick = ? gender = ? age = ? Email = ?";
+            String query = " update users set password = ? where name = ? email = ?";
             PreparedStatement preparedStmt = cn.prepareStatement(query);
             preparedStmt.setString (2, txtnick);
             preparedStmt.setString (1, txtPassword);
