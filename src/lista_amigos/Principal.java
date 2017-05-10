@@ -45,6 +45,7 @@ agregar_amigo x = new agregar_amigo(null);
 //--------------Constructor
 public Principal(String user) {
    
+    userrr = user;
 Connectar conn = new Connectar();
 cone=conn.con_bd();
         configura(user);  
@@ -122,6 +123,7 @@ cone=conn.con_bd();
         );
         Agregar.addActionListener(this);
         Cerrar.addActionListener(this);
+        Cambiar_Info.addActionListener(this);
             setLayout(orden);
         this.pack();
         Amigos.addListSelectionListener(new ListSelectionListener()
