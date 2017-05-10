@@ -22,7 +22,7 @@ import lista_amigos.Register;
  * @author darik
  */
 public class ChageInformation extends javax.swing.JFrame {
- String nickk;
+ public String nickk;
  
     /**
      * Creates new form ChageInformation
@@ -31,6 +31,7 @@ public class ChageInformation extends javax.swing.JFrame {
         this.nickk = nick;
         initComponents();
         jTextField6.setText(nick);
+        jTextField6.enable(false);
     }
     
         /**
@@ -46,7 +47,6 @@ public class ChageInformation extends javax.swing.JFrame {
     void change(String txtnick,Integer txtage,String txtgender,String txtPassword,String txtConfirmPassword,String txtEmail){
         String compare="SELECT * FROM users";
         String nick="", password="";
-        nickk=txtnick;
         boolean comparation=false;
         try {
         Statement st = cn.createStatement();

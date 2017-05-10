@@ -56,7 +56,7 @@ public class Register extends javax.swing.JFrame {
         
         while(rs.next())
             {
-                nick=rs.getString("nick");
+                nick=rs.getString("name");
                 password=rs.getString("password");
                 if(nick.equals(txtnick) && password.equals(password)){
                 comparation=true;
