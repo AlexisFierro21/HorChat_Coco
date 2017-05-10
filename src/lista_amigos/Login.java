@@ -25,10 +25,17 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    public String nick;
+
+    public void setNick(String nick) {
+        this.nick = nick;
+    }
+    
     public Login() {
         initComponents();
     }
     
+    //Verifica si los textbow estan correctamente llenados y si el usuario existe en la base de datos
     void access(String User, String Password){
         String sql="SELECT * FROM users WHERE nick ='"+ User +"' && password ='"+Password+"'";
         String nick="", password="";
@@ -148,6 +155,9 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    //Boton para iniciar sesion
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
          String txtUser = jTextField1.getText();
@@ -155,6 +165,8 @@ public class Login extends javax.swing.JFrame {
          access(txtUser, txtPassword);
     }//GEN-LAST:event_jButton1MouseClicked
 
+    
+    //Boton para registrase
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
         Register register = new Register();
@@ -207,6 +219,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
+    
+    //Coneccion con la base de datos
     Connectar cc = new Connectar();
     Connection cn = cc.con_bd();
 }

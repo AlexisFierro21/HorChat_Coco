@@ -34,7 +34,8 @@ public class Register extends javax.swing.JFrame {
     }
 
     
-    
+    //Metodo que verifica si los textbox estan llenados de manera correcta y si lo estan inserta al nuevo usuario
+    //recibe los valores de todos los textbox de la pantalla
     
     public void register(String txtnick,Integer txtage,String txtgender,String txtPassword,String txtConfirmPassword,String txtEmail){
         String compare="SELECT * FROM users";
@@ -226,6 +227,8 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    
+    //Boton para ingresar como nuevo usuario 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         String txtnick = jTextField1.getText();
@@ -239,6 +242,7 @@ public class Register extends javax.swing.JFrame {
         register(txtnick,txtage,txtgender, txtPassword, txtConfirmPassword, txtEmail);
     }//GEN-LAST:event_jButton1MouseClicked
 
+    //Boton para regresar al log in
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
         Login login = new Login();

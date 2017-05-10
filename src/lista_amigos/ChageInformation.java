@@ -30,7 +30,8 @@ public class ChageInformation extends javax.swing.JFrame {
         initComponents();
     }
     
-    
+    //Metodo que verifica si los textbox estan llenados de manera correcta y si lo estan realiza los cambios
+    //recibe los valores de todos los textbox de la pantalla
     void change(String txtnick,Integer txtage,String txtgender,String txtPassword,String txtConfirmPassword,String txtEmail){
         String compare="SELECT * FROM users";
         String nick="", password="";
@@ -66,7 +67,7 @@ public class ChageInformation extends javax.swing.JFrame {
             }else if(comparation == true){
                 JOptionPane.showMessageDialog(null, "Already existing user");
             }else{
-            String query = " update users set password = ? where nick = ?";
+            String query = " update users set password = ? where nick = ? gender = ? age = ? Email = ?";
             PreparedStatement preparedStmt = cn.prepareStatement(query);
             preparedStmt.setString (2, txtnick);
             preparedStmt.setString (1, txtPassword);
@@ -324,6 +325,8 @@ public class ChageInformation extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    
+    //Boton para cambiar los datos
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
         String txtnick = jTextField6.getText();
@@ -334,12 +337,12 @@ public class ChageInformation extends javax.swing.JFrame {
         String txtEmail = jTextField5.getText();
         change(txtnick,txtage,txtgender, txtPassword, txtConfirmPassword, txtEmail);
     }//GEN-LAST:event_jButton3MouseClicked
-
+    //BOton para salir y manda a la pagina principal
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
-        Login login = new Login();
-        login.setVisible(true);
-        login.pack();
+        Principal x = new Principal();
+        x.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton4MouseClicked
 
     /**
