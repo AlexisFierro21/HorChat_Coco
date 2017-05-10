@@ -37,21 +37,22 @@ JButton Cerrar = new JButton("Cerrar Sesion");
 JButton Cambiar_Info = new JButton("Editar");
 Conversacion con=new Conversacion(null,null);
 DefaultListModel modelo;
+String userrr;
 private Connection cone;
  private ResultSet res;
      PreparedStatement sql=null;
-agregar_amigo x = new agregar_amigo();
+agregar_amigo x = new agregar_amigo(null);
 
 //--------------Constructor
-public Principal() {
+public Principal(String user) {
    
 Connectar conn = new Connectar();
 cone=conn.con_bd();
-        configura();  
+        configura(user);  
 
     }
       //---------------------Vista
-      public void configura(){
+      public void configura(String userr){
     int x=0;
          modelo = new DefaultListModel();
      try {
@@ -122,7 +123,8 @@ cone=conn.con_bd();
             {
                String var;
                var =  Amigos.getSelectedValue().toString();
-                con= new Conversacion(var,"Usuario");
+                con= new Conversacion(var,userr);
+                userrr=userr;
                 //arg0.
                 con.setVisible(true);
             
@@ -136,7 +138,7 @@ cone=conn.con_bd();
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==Agregar){
            // JOptionPane.showMessageDialog(null,"Hola");
-            agregar_amigo x = new agregar_amigo();
+            agregar_amigo x = new agregar_amigo(userrr);
             x.setVisible(true);
             dispose();
         }else{ 

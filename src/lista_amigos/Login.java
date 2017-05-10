@@ -50,7 +50,7 @@ public class Login extends javax.swing.JFrame {
             }
         
         if(nick.equals(User) && password.equals(Password)){
-            Principal x = new Principal();
+            Principal x = new Principal(nick);
             x.setVisible(true);
             dispose();
         }if(nick.equals(User) && !password.equals(Password)){
