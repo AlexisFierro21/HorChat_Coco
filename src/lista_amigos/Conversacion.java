@@ -66,12 +66,29 @@ public class Conversacion extends JFrame implements ActionListener{
         this.add(holis);
         this.add(Enviar);
         this.add(NuevoEnvio);
-        actualizarTextField();
+        //actualizarTextField();
     }
-    public void actualizarTextField(){
+    public void actualizarTextField(JSONObject obj){
         Conver.setText("");
-        NuevoEnvio.setText("");
+        String json = obj.toString();
+  
+        JSONParser parser = new JSONParser();
+
         try {
+
+            Object objt = parser.parse(json);
+            JSONObject jsonObject = (JSONObject) objt;
+            System.out.println();
+            String namee = (String) jsonObject.get("De");
+            System.out.println(namee);
+            Conver.setText(Conver.getText()+(String) jsonObject.get("De")+ ": ");
+            Conver.setText(Conver.getText()+(String) jsonObject.get("Mensaje")+ "\n");
+            String cityy = (String) jsonObject.get("Mensaje");
+            System.out.println(cityy);
+            } catch (ParseException e) {
+            System.out.println("Error");
+        }
+        /*try {
 	File fXmlFile = new File("C:/Users/HildaLuz/Downloads/MuestraMensajes/"+File+".xml");
 	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -105,12 +122,19 @@ public class Conversacion extends JFrame implements ActionListener{
         
     } catch (Exception e) {
 	e.printStackTrace();
-    }
+    }*/
     }
     @Override
     public void actionPerformed(ActionEvent ae) {
         System.out.println(NuevoEnvio.getText());
+        JSONObject obj = new JSONObject();
+        obj.put("De", nombre);
+        obj.put("Para", File);
+        obj.put("Mensaje",NuevoEnvio.getText());
+        //Objeto JSON listo para salir al servidor
+        System.out.print(obj + "\n");
         Conver.setText(Conver.getText()+ nombre+": "+NuevoEnvio.getText()+"\n");
+        
         NuevoEnvio.setText("");
         
     }

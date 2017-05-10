@@ -20,15 +20,16 @@ import static javax.swing.WindowConstants.HIDE_ON_CLOSE;
  * @author alexi
  */
 public class agregar_amigo extends JFrame implements ActionListener {
-    
+    String userr;
     JTextField usuario = new JTextField();
     JButton agregarr = new JButton("Agregar");
-    public agregar_amigo() {
-    conver();
+    public agregar_amigo(String user) {
+    conver(user);
     
     }
-public void conver(){
+public void conver(String user){
    // JTextArea chat = new JTextArea();
+   userr=user;
      setDefaultCloseOperation(HIDE_ON_CLOSE);    
         setSize(350, 250);
         setLayout(null);
@@ -62,7 +63,7 @@ public void conver(){
     public void actionPerformed(ActionEvent e) {
    if( e.getSource()==agregarr)
    {
-    Principal x = new Principal();
+    Principal x = new Principal(userr);
     x.setVisible(true);
     dispose();
    }

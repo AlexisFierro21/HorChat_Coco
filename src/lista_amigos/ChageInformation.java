@@ -22,7 +22,7 @@ import lista_amigos.Register;
  * @author darik
  */
 public class ChageInformation extends javax.swing.JFrame {
-
+String nickk;
     /**
      * Creates new form ChageInformation
      */
@@ -35,6 +35,7 @@ public class ChageInformation extends javax.swing.JFrame {
     void change(String txtnick,Integer txtage,String txtgender,String txtPassword,String txtConfirmPassword,String txtEmail){
         String compare="SELECT * FROM users";
         String nick="", password="";
+        nickk=txtnick;
         boolean comparation=false;
         try {
         Statement st = cn.createStatement();
@@ -340,7 +341,7 @@ public class ChageInformation extends javax.swing.JFrame {
     //BOton para salir y manda a la pagina principal
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
-        Principal x = new Principal();
+        Principal x = new Principal(nickk);
         x.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton4MouseClicked
