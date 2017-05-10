@@ -36,6 +36,8 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        jTextField2.setVisible(false);
+        jLabel3.setVisible(false);
     }
     
     /**
@@ -57,6 +59,7 @@ public class Login extends javax.swing.JFrame {
                 password=rs.getString("password");
                 if(nick.equals(User) && password.equals(Password)){
                     compare=true;
+                    
                 }
             }
         
@@ -64,7 +67,7 @@ public class Login extends javax.swing.JFrame {
             Principal x = new Principal(nick);
             x.setVisible(true);
             dispose();
-        }if(nick.equals(User) && !password.equals(Password)){
+        }else if(nick.equals(User) && !password.equals(Password)){
             JOptionPane.showMessageDialog(null, "Wrong Password");
         }else if(nick.equals(null) && password.equals(null)){
             JOptionPane.showMessageDialog(null, "Llenar lo valores porfavor");

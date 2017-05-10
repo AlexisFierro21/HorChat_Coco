@@ -149,6 +149,11 @@ cone=conn.con_bd();
             agregar_amigo x = new agregar_amigo(userrr);
             x.setVisible(true);
             dispose();
+        }if(e.getSource()==Cerrar){
+           // JOptionPane.showMessageDialog(null,"Hola");
+            Login x = new Login();
+            x.setVisible(true);
+            dispose();
         }else{ 
             if(e.getSource()==Cambiar_Info){
                 ChageInformation x = new ChageInformation(userrr);
